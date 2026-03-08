@@ -1,6 +1,35 @@
-# sql-data-warehouse-project
-SQL Server data warehouse project demonstrating ETL pipelines, dimensional modeling, and analytical reporting.
+# Data Warehouse and Analytics Project
 
+## 🏗️ Data Architecture
+
+This project implements a **modern SQL Server Data Warehouse** designed to integrate data from multiple source systems and support analytical reporting.
+
+The architecture follows a layered approach inspired by the **Medallion Architecture** pattern.
+
+![High Level Architecture](docs/high_level_architecture.png)
+
+### Layers of the Data Warehouse
+
+**Raw Layer**
+
+- Stores source data ingested directly from CRM and ERP systems.
+- Data is loaded from CSV files without transformations.
+- Serves as the staging area for the ETL pipeline.
+
+**Modeled Layer**
+
+- Performs data cleansing and standardization.
+- Resolves data quality issues.
+- Aligns data types and structures across different source systems.
+- Prepares integrated datasets for analytical modeling.
+
+**Analytics Layer**
+
+- Provides business-ready data structures.
+- Implements a **Star Schema** composed of dimension and fact views.
+- Optimized for analytical queries and reporting.
+
+---
 ## 📂 Repository Structure
 ```
 sql-data-warehouse-project/
