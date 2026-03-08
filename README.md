@@ -6,7 +6,7 @@ This project implements a **modern SQL Server Data Warehouse** designed to integ
 
 The architecture follows a layered approach inspired by the **Medallion Architecture** pattern.
 
-![High Level Architecture](docs/high_level_architecture.png)
+![High Level Architecture](docs/high_level_architecture.drawio.png)
 
 ### Layers of the Data Warehouse
 
