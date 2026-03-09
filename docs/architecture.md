@@ -12,7 +12,6 @@ The pipeline follows a structured transformation process:
 - **Raw Layer** – Source data is ingested into SQL Server without transformation, preserving the original structure.
 - **Modeled Layer** – Data is cleaned, standardized, and transformed to ensure consistency across systems.
 - **Analytics Layer** – A dimensional model is created to support analytical queries and reporting.
-- **Data Quality Checks** – Validation scripts ensure data integrity before the data is used for analysis.
 
 ---
 
@@ -24,12 +23,12 @@ The project integrates data from multiple operational systems into a **single an
 
 Key integration processes include:
 
-- Combining **CRM customer data** with **ERP location and demographic data** to create a unified customer dimension.
-- Integrating **ERP product category information** with CRM product data to enrich product attributes.
-- Linking **sales transactions** with product and customer dimensions through foreign keys.
-- Standardizing attributes such as **gender, marital status, country names, and product categories**.
-- Transforming source-specific formats and codes into **consistent analytical attributes**.
-- Creating a **centralized data model** that enables consistent reporting and analysis across systems.
+- Combining CRM customer data with ERP location and demographic data to create a unified customer dimension.
+- Integrating ERP product category information with CRM product data to enrich product attributes.
+- Linking sales transactions with product and customer dimensions through foreign keys.
+- Standardizing attributes such as gender, marital status, country names, and product categories.
+- Transforming source-specific formats and codes into consistent analytical attributes.
+- Creating a centralized data model that enables consistent reporting and analysis across systems.
 
 ---
 
@@ -60,10 +59,3 @@ Relationships between tables follow **one-to-many cardinality**:
 - Each **sale record** references **one customer and one product**.
 - A **customer** can appear in **many sales transactions**.
 - A **product** can appear in **many sales transactions**.
-
-This structure enables efficient analytical queries such as:
-
-- Sales by **product category**
-- Sales by **customer demographics**
-- Product performance analysis
-- Customer purchasing behavior
