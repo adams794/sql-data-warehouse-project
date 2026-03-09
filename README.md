@@ -30,26 +30,16 @@ The architecture follows a layered approach inspired by the **Medallion Architec
 - Optimized for analytical queries and reporting.
 
 ---
-## 🔄 Data Flow
 
-The following diagram illustrates the **data movement and transformation flow** from the source systems through the warehouse layers to the final analytics model.
+## 📚 Additional Documentation
 
-![Data Flow](docs/data_flow.drawio.png)
+Detailed technical documentation for this project is available in the `/docs` folder.
 
----
+The architecture document includes diagrams describing the **data flow pipeline**, **data integration between CRM and ERP systems**, and the **Star Schema relationships** used in the analytics layer.
 
-## 🔗 Data Integration
+➡️ See the full documentation here:  
+[Architecture & Data Design](docs/architecture.md)
 
-The project integrates data from multiple operational systems into a **single analytical model**.
-
-![Data Integration](docs/data_integration.drawio.png)
-
-Key integration processes include:
-
-- Combining **CRM customer data** with **ERP location and demographic data**
-- Linking **sales transactions** with product and customer dimensions
-- Standardizing attributes such as gender, marital status, and product categories
-- Creating a unified data model optimized for analysis
 ---
 
 ## 📊 Data Analysis with SQL
