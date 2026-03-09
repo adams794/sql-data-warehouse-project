@@ -1,8 +1,10 @@
+# Architecture & Data Design
+
 ## 🔄 Data Flow
 
 The following diagram illustrates the **data movement and transformation flow** from the source systems through the warehouse layers to the final analytics model.
 
-![Data Flow](docs/data_flow.drawio.png)
+![Data Flow](/docs/data_flow.drawio.png)
 
 The pipeline follows a structured transformation process:
 
@@ -18,7 +20,7 @@ The pipeline follows a structured transformation process:
 
 The project integrates data from multiple operational systems into a **single analytical model**.
 
-![Data Integration](docs/data_integration.drawio.png)
+![Data Integration](/docs/data_integration.drawio.png)
 
 Key integration processes include:
 
@@ -35,7 +37,7 @@ Key integration processes include:
 
 The following diagram illustrates the **dimensional model used in the analytics layer** and the relationships between fact and dimension tables.
 
-![Star Schema Relationships](docs/star_schema_relationships.drawio.png)
+![Star Schema Relationships](/docs/star_schema_relationships.drawio.png)
 
 The schema follows a **Star Schema design**, where a central fact table is connected to multiple dimension tables.
 
