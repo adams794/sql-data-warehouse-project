@@ -1,0 +1,157 @@
+# Naming Conventions
+
+This document defines the naming standards used for database objects in this data warehouse project.  
+
+---
+
+## General Principles
+
+- Use **snake_case** (lowercase letters with underscores).
+- Use **English** for all object names.
+- Avoid SQL **reserved keywords**.
+- Use **clear and descriptive names** reflecting the purpose of the object.
+
+---
+
+# Table and View Naming
+
+Naming patterns depend on the **data warehouse layer**.
+
+## Raw Layer
+
+Tables in the raw layer replicate the structure of the source systems.
+
+**Pattern**
+
+`<source_system>_<entity>`
+
+**Examples**
+
+`crm_cust_info`  
+`crm_prd_info`  
+`erp_loc_a101`  
+`erp_cust_az12`
+
+**Rules**
+
+- Table names follow the **original source naming**.
+- The source system prefix identifies where the data originates.
+
+---
+
+## Modeled Layer
+
+Tables in the modeled layer contain **cleaned and standardized data** derived from the raw layer.
+
+**Pattern**
+
+`<source_system>_<entity>`
+
+**Examples**
+
+`crm_cust_info`  
+`crm_prd_info`  
+`crm_sales_details`
+
+**Rules**
+
+- Naming remains consistent with the source system.
+- Data transformations occur here but naming stays aligned with the source structure.
+
+---
+
+## Analytics Layer
+
+The analytics layer contains the **dimensional model used for analytical queries and reporting**.
+
+**Pattern**
+
+`<type>_<entity>`
+
+**Examples**
+
+`dim_customers`  
+`dim_products`  
+`fact_sales`  
+`report_customers`  
+`report_products`
+
+### Prefix Glossary
+
+| Prefix | Meaning | Example |
+|------|------|------|
+| `dim_` | Dimension table | `dim_customers` |
+| `fact_` | Fact table | `fact_sales` |
+| `report_` | Analytical report view | `report_customers` |
+
+---
+
+# Column Naming
+
+## Surrogate Keys
+
+Dimension tables use surrogate keys generated in the analytics layer.
+
+**Pattern**
+
+`<entity>_key`
+
+**Examples**
+
+`customer_key`  
+`product_key`
+
+These keys are used to define relationships between **fact and dimension tables**.
+
+---
+
+## Business Keys
+
+Business identifiers originating from source systems typically use:
+
+`<entity>_id`
+
+**Examples**
+
+`customer_id`  
+`product_id`
+
+---
+
+## Foreign Keys
+
+Foreign keys in fact tables reference dimension surrogate keys.
+
+**Examples**
+
+`customer_key`  
+`product_key`
+
+---
+
+## Technical Columns
+
+System-generated metadata columns use the prefix:
+
+`dwh_`
+
+**Example**
+
+`dwh_create_date`
+
+These columns store **data warehouse metadata**, such as load timestamps.
+
+---
+
+# Stored Procedure Naming
+
+Stored procedures responsible for loading data follow the pattern:
+
+`load_<layer>_layer`
+
+**Examples**
+
+`load_raw_layer`  
+`load_modeled_layer`
+
+These procedures perform ETL operations between warehouse layers.
