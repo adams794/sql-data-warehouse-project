@@ -35,10 +35,17 @@ The architecture follows a layered approach inspired by the **Medallion Architec
 
 Detailed technical documentation for this project is available in the `/docs` folder.
 
-The architecture document includes diagrams describing the **data flow pipeline**, **data integration between CRM and ERP systems**, and the **Star Schema relationships** used in the analytics layer.
+The documentation includes:
 
-➡️ See the full documentation here:  
-[Architecture & Data Design](docs/architecture.md)
+- **Architecture & Data Design** – diagrams describing the data flow pipeline, data integration between CRM and ERP systems, and the Star Schema relationships used in the analytics layer.
+- **Data Catalog** – description of tables and columns available in the analytics layer.
+- **Naming Conventions** – standards used for naming schemas, tables, columns, and stored procedures.
+
+➡️ Explore the documentation:
+
+- [Architecture & Data Design](docs/architecture.md)
+- [Data Catalog](docs/data_catalog.md)
+- [Naming Conventions](docs/naming_conventions.md)
 
 ---
 
@@ -114,43 +121,52 @@ This project highlights practical skills in:
 ---
 
 ## 📂 Repository Structure
+
 ```
 sql-data-warehouse-project/
 │
-├── datasets/                                    # Source datasets used in the project
-│   ├── source_crm/                              # CRM system datasets
-│   └── source_erp/                              # ERP system datasets
+├── datasets/                                      # Source datasets used in the project
+│   │
+│   ├── source_crm/                                # CRM system datasets
+│   └── source_erp/                                # ERP system datasets
 │
-├── docs/                                        # Architecture and project documentation
-│   ├── high_level_architecture.drawio           # High-level architecture of the data warehouse
-│   ├── data_flow.drawio                         # Data flow diagram showing ETL pipeline
-│   └── data_integration.drawio                  # Data integration diagram between source systems
+├── docs/                                          # Architecture and project documentation
+│   │
+│   ├── architecture.md                            # Detailed explanation of data flow, integration, and star schema
+│   ├── data_catalog.md                            # Description of analytics layer tables and columns
+│   ├── naming_conventions.md                      # Naming standards for database objects
+│   │
+│   ├── high_level_architecture.drawio             # High-level architecture diagram
+│   ├── data_flow.drawio                           # Data flow diagram of the ETL pipeline
+│   ├── data_integration.drawio                    # Data integration diagram between source systems
+│   └── star_schema_relationships.drawio           # Star schema showing fact and dimension relationships
 │
-├── scripts/                                     # SQL scripts implementing the data warehouse pipeline
-│   ├── raw_layer/                               # Raw layer – source data ingestion
-│   │   ├── init_database.sql                    # Creates the DataWarehouse database and schemas
-│   │   ├── ddl_raw_layer.sql                    # Defines raw tables mirroring source systems
-│   │   └── proc_load_raw_layer.sql              # Loads CSV source data into raw tables
+├── scripts/                                       # SQL scripts implementing the data warehouse pipeline
 │   │
-│   ├── modeled_layer/                           # Modeled layer – data cleansing and standardization
-│   │   ├── ddl_modeled_layer.sql                # Creates cleaned and standardized modeled tables
-│   │   └── proc_load_modeled_layer.sql          # Transforms and loads data from raw to modeled layer
+│   ├── raw_layer/                                 # Raw layer – source data ingestion
+│   │   ├── init_database.sql                      # Creates the DataWarehouse database and schemas
+│   │   ├── ddl_raw_layer.sql                      # Defines raw tables mirroring source systems
+│   │   └── proc_load_raw_layer.sql                # Loads CSV source data into raw tables
 │   │
-│   ├── analytics_layer/                         # Analytics layer – dimensional model (Star Schema)
-│   │   └── ddl_analytics_layer.sql              # Creates dimension and fact views for analytics
+│   ├── modeled_layer/                             # Modeled layer – data cleansing and standardization
+│   │   ├── ddl_modeled_layer.sql                  # Creates cleaned and standardized modeled tables
+│   │   └── proc_load_modeled_layer.sql            # Transforms and loads data from raw to modeled layer
 │   │
-│   ├── quality_checks/                          # Data quality validation scripts
-│   │   ├── quality_checks_modeled.sql           # Validates data quality in the modeled layer
-│   │   └── quality_checks_analytics.sql         # Validates Star Schema integrity and relationships
+│   ├── analytics_layer/                           # Analytics layer – dimensional model (Star Schema)
+│   │   └── ddl_analytics_layer.sql                # Creates dimension and fact views for analytics
 │   │
-│   ├── data_analysis/                           # Exploratory and analytical SQL queries
-│   │   ├── basic_exploratory_data_analysis.sql  # Basic EDA on the analytics layer
-│   │   ├── adv_exploratory_data_analysis.sql    # Advanced analytical queries and trend analysis
-│   │   ├── report_customers.sql                 # Customer analytical report view
-│   │   └── report_products.sql                  # Product analytical report view
+│   ├── quality_checks/                            # Data quality validation scripts
+│   │   ├── quality_checks_modeled.sql             # Validates data quality in the modeled layer
+│   │   └── quality_checks_analytics.sql           # Validates Star Schema integrity and relationships
+│   │
+│   ├── data_analysis/                             # Exploratory and analytical SQL queries
+│   │   ├── basic_exploratory_data_analysis.sql    # Basic EDA on the analytics layer
+│   │   ├── adv_exploratory_data_analysis.sql      # Advanced analytical queries and trend analysis
+│   │   ├── report_customers.sql                   # Customer analytical report view
+│   │   └── report_products.sql                    # Product analytical report view
 │
-├── README.md                                    # Project overview and documentation
-└── LICENSE                                      # Repository license
+├── README.md                                      # Project overview and documentation
+└── LICENSE                                        # Repository license
 ```
 ---
 ## 🙏 Credits
