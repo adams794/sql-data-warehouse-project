@@ -17,10 +17,7 @@ These views are built on top of the **modeled layer** and serve as the primary i
 
 # analytics.dim_customers
 
-**Purpose**
-
-Provides descriptive information about customers used for segmentation and customer-related analysis.  
-The view combines CRM customer information with additional attributes sourced from ERP systems.
+**Purpose:** Provides descriptive information about customers used for segmentation and customer-related analysis.  
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
@@ -29,19 +26,16 @@ The view combines CRM customer information with additional attributes sourced fr
 | customer_number | NVARCHAR(50) | Business identifier used to reference the customer across systems |
 | first_name | NVARCHAR(50) | Customer's given name |
 | last_name | NVARCHAR(50) | Customer's family name |
-| country | NVARCHAR(50) | Country associated with the customer, derived from ERP location data |
-| marital_status | NVARCHAR(50) | Standardized marital status attribute describing the customer's marital status (e.g., 'Married', 'Single') |
-| gender | NVARCHAR(50) | Customer's gender (e.g., 'Male', 'Female', 'N/A' |
-| birthdate | DATE | Customer's date of birth |
+| country | NVARCHAR(50) | Country associated with the customer |
+| marital_status | NVARCHAR(50) | Customer's marital status (e.g., 'Married', 'Single') |
+| gender | NVARCHAR(50) | Customer's gender (e.g., 'Male', 'Female', 'N/A') |
+| birthdate | DATE | Customer's date of birth, formatted as YYYY-MM-DD |
 
 ---
 
 # analytics.dim_products
 
-**Purpose**
-
-Stores descriptive attributes related to products.  
-This dimension enables product-level analysis such as category performance, product segmentation, and pricing analysis.
+**Purpose:** Stores descriptive attributes related to products.  
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
@@ -55,33 +49,24 @@ This dimension enables product-level analysis such as category performance, prod
 | maintenance | NVARCHAR(50) | Attribute indicating whether the product requires maintenance (e.g., Yes / No) |
 | cost | INT | Cost associated with the product |
 | product_line | NVARCHAR(50) | Product line classification grouping similar products |
-| start_date | DATE | Date when the product became active or available |
+| start_date | DATE | Date when the product became active or available, formatted as YYYY-MM-DD |
 
 ---
 
 # analytics.fact_sales
 
-**Purpose**
-
-Contains transactional sales records representing individual sales events.  
-This fact view stores measurable metrics and links to dimension views through surrogate keys.
+**Purpose:** Contains transactional sales records representing individual sales events.  
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
 | order_number | NVARCHAR(50) | Unique identifier representing a sales order transaction |
 | product_key | INT | Foreign key referencing the product dimension |
 | customer_key | INT | Foreign key referencing the customer dimension |
-| order_date | DATE | Date when the order was placed |
-| shipping_date | DATE | Date when the order was shipped to the customer |
-| due_date | DATE | Date when payment for the order is due |
+| order_date | DATE | Date when the order was placed, formatted as YYYY-MM-DD |
+| shipping_date | DATE | Date when the order was shipped to the customer, formatted as YYYY-MM-DD |
+| due_date | DATE | Date when payment for the order is due, formatted as YYYY-MM-DD |
 | sales_amount | INT | Total monetary value of the sales transaction |
 | quantity | INT | Number of product units included in the order line |
 | price | INT | Unit price of the product in the transaction |
 
----
 
-## Notes
-
-- The **analytics layer is implemented using SQL views**, acting as a lightweight semantic layer over the modeled tables.
-- Surrogate keys are generated using `ROW_NUMBER()` to enable stable relationships between fact and dimension entities.
-- The structure follows a **Star Schema design**, which simplifies analytical queries and improves performance for aggregations.
