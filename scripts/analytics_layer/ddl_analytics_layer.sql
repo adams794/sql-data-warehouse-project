@@ -41,8 +41,7 @@ SELECT
         WHEN ci.cst_gndr <> 'Unknown' THEN ci.cst_gndr           -- CRM is the primary source for gender
         ELSE COALESCE(ca.gen, 'Unknown')                         -- Fallback to ERP data
     END                                    AS gender,
-    ca.bdate                                AS birthdate,
-    ci.cst_create_date                      AS create_date
+    ca.bdate                                AS birthdate
 FROM modeled.crm_cust_info ci
 LEFT JOIN modeled.erp_cust_az12 ca
     ON ci.cst_key = ca.cid
