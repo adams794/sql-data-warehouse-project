@@ -26,7 +26,7 @@ The architecture follows a layered approach inspired by the **Medallion Architec
 **Analytics Layer**
 
 - Provides business-ready data structures.
-- Implements a **Star Schema** composed of dimension and fact views.
+- Implements a Star Schema composed of dimension and fact views.
 - Optimized for analytical queries and reporting.
 
 ---
@@ -77,11 +77,11 @@ Example insights generated using SQL include:
 
 More advanced SQL techniques are used to analyze trends and patterns in the data, including:
 
-- **time-series analysis** of monthly sales performance
-- **running totals and cumulative metrics**
-- **year-over-year product performance comparisons**
-- **category contribution to overall revenue**
-- **customer segmentation based on purchasing behaviour**
+- time-series analysis of monthly sales performance
+- running totals and cumulative metrics
+- year-over-year product performance comparisons
+- category contribution to overall revenue
+- customer segmentation based on purchasing behaviour
 
 These analyses demonstrate the use of advanced SQL features such as:
 
