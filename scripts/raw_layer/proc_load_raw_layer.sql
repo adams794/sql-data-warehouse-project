@@ -40,7 +40,7 @@ BEGIN
 		TRUNCATE TABLE raw.crm_cust_info;
 		PRINT CONCAT('[', CONVERT(NVARCHAR(19), GETDATE(), 120), '] [INFO] [raw.crm_cust_info] Loading data from CSV');
 		BULK INSERT raw.crm_cust_info
-		FROM 'C:\Users\adams\Desktop\SQL Data Warehouse project\datasets\source_crm\cust_info.csv'
+		FROM '\datasets\source_crm\cust_info.csv'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -59,7 +59,7 @@ BEGIN
 		TRUNCATE TABLE raw.crm_prd_info;
 		PRINT CONCAT('[', CONVERT(NVARCHAR(19), GETDATE(), 120), '] [INFO] [raw.crm_prd_info] Loading data from CSV');
 		BULK INSERT raw.crm_prd_info
-		FROM 'C:\Users\adams\Desktop\SQL Data Warehouse project\datasets\source_crm\prd_info.csv'
+		FROM '\datasets\source_crm\prd_info.csv'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -78,7 +78,7 @@ BEGIN
 		TRUNCATE TABLE raw.crm_sales_details;
 		PRINT CONCAT('[', CONVERT(NVARCHAR(19), GETDATE(), 120), '] [INFO] [raw.crm_sales_details] Loading data from CSV');
 		BULK INSERT raw.crm_sales_details
-		FROM 'C:\Users\adams\Desktop\SQL Data Warehouse project\datasets\source_crm\sales_details.csv'
+		FROM '\datasets\source_crm\sales_details.csv'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -100,7 +100,7 @@ BEGIN
 		TRUNCATE TABLE raw.erp_loc_a101;
 		PRINT CONCAT('[', CONVERT(NVARCHAR(19), GETDATE(), 120), '] [INFO] [raw.erp_loc_a101] Loading data from CSV');
 		BULK INSERT raw.erp_loc_a101
-		FROM 'C:\Users\adams\Desktop\SQL Data Warehouse project\datasets\source_erp\loc_a101.csv'
+		FROM '\datasets\source_erp\loc_a101.csv'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -119,7 +119,7 @@ BEGIN
 		TRUNCATE TABLE raw.erp_cust_az12;
 		PRINT CONCAT('[', CONVERT(NVARCHAR(19), GETDATE(), 120), '] [INFO] [raw.erp_cust_az12] Loading data from CSV');
 		BULK INSERT raw.erp_cust_az12
-		FROM 'C:\Users\adams\Desktop\SQL Data Warehouse project\datasets\source_erp\cust_az12.csv'
+		FROM '\datasets\source_erp\cust_az12.csv'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -138,7 +138,7 @@ BEGIN
 		TRUNCATE TABLE raw.erp_px_cat_g1v2;
 		PRINT CONCAT('[', CONVERT(NVARCHAR(19), GETDATE(), 120), '] [INFO] [raw.erp_px_cat_g1v2] Loading data from CSV');
 		BULK INSERT raw.erp_px_cat_g1v2
-		FROM 'C:\Users\adams\Desktop\SQL Data Warehouse project\datasets\source_erp\px_cat_g1v2.csv'
+		FROM '\datasets\source_erp\px_cat_g1v2.csv'
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
