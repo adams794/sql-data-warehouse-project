@@ -11,6 +11,18 @@ This document defines the naming standards used for database objects in this dat
 
 ---
 
+# Schema Naming
+
+Schemas represent logical layers of the data warehouse.
+
+| Schema | Purpose |
+|------|------|
+| raw | Stores source data in its original format |
+| modeled | Contains cleaned and standardized data |
+| analytics | Provides business-ready data for reporting and analysis |
+
+---
+
 # Table and View Naming
 
 Naming patterns depend on the **data warehouse layer**.
