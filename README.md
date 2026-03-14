@@ -1,5 +1,15 @@
 # Data Warehouse and Analytics Project
 
+A SQL Server data warehouse project that integrates CRM and ERP data into a dimensional analytics model.
+
+The project demonstrates how to build an end-to-end analytical pipeline including:
+
+- raw data ingestion
+- data transformation and cleansing
+- dimensional modeling (Star Schema)
+- analytical SQL queries
+- data quality validation
+
 ## 🏗️ Data Architecture
 
 This project implements a **modern SQL Server Data Warehouse** designed to integrate data from multiple source systems and support analytical reporting.
@@ -49,7 +59,7 @@ The documentation includes:
 
 ---
 
-## 📊 Data Analysis with SQL
+## 📊 Analytical SQL
 
 A key objective of this project is to demonstrate how **SQL can be used to perform end-to-end data analysis directly inside the database**, without relying on external tools such as Excel or BI platforms.
 
@@ -168,7 +178,34 @@ sql-data-warehouse-project/
 ├── README.md                                      # Project overview and documentation
 └── LICENSE                                        # Repository license
 ```
+
+The SQL scripts are organized to reflect the execution order of the data warehouse pipeline.  
+To reproduce the project, run the scripts sequentially from the **raw layer to the analytics layer**, followed by **data quality checks and analytical queries**.
+
 ---
+
+## ⚙️ Design Decisions & Simplifications
+
+This project was designed as a learning and portfolio exercise, so several implementation choices were intentionally simplified compared to a production data warehouse.
+
+Key design decisions include:
+
+- **Surrogate keys generated with ROW_NUMBER()**  
+  Dimension keys in the analytics layer are generated dynamically using `ROW_NUMBER()`.  
+  In production environments, surrogate keys are typically generated using identity columns or maintained in persistent dimension tables.
+
+- **CSV files used as source systems**  
+  CRM and ERP data are provided as CSV extracts to simulate operational source systems.  
+  In real-world environments, ingestion would typically occur through database connections, APIs, or streaming pipelines.
+
+- **Indexes not explicitly defined**  
+  Indexing strategies were intentionally omitted to keep the project focused on architecture, transformations, and analytical modeling.  
+  In production systems, indexes would typically be applied to fact table foreign keys and frequently queried columns.
+
+These simplifications allow the project to focus on demonstrating **data warehouse architecture, ETL design, and analytical SQL techniques**.
+
+---
+
 ## 🙏 Credits
 
 This project was developed as part of the learning materials provided by **Data With Baraa**.
